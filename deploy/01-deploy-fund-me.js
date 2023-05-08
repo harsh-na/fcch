@@ -1,3 +1,5 @@
+// Chainlink is used in order to deploy a contract on Hardhat when you need to access off-chain data or systems in your contract, and you want to do so in a secure and reliable way.
+
 const { network } = require("hardhat")
 const { networkConfig, developmentChains } = require("../helper-hardhat-config")
 const { verify } = require("../utils/verify")
@@ -22,7 +24,7 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
         args: [ethUsdPriceFeedAddress],
         log: true,
         // we need to wait if on a live network so we can verify properly
-        waitConfirmations: network.config.blockConfirmations || 1,
+        // waitConfirmations: network.config.blockConfirmations || 1,
     })
     log(`FundMe deployed at ${fundMe.address}`)
 
